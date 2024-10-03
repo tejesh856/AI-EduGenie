@@ -14,6 +14,7 @@ export default function Dashboard() {
   // Fetch user data when session is available
   useEffect(() => {
     const fetchUser = async () => {
+      console.log('starting fetch user',session);
       if (!session?.user?.accessToken) {
         await signOut({ callbackUrl: "/login" });
         return;
@@ -27,6 +28,7 @@ export default function Dashboard() {
           },
         });
         const data = await response.json();
+        console.log('response data',data);
         if (!response.ok) {
           //await update();
           //return;
@@ -34,8 +36,9 @@ export default function Dashboard() {
         }
         setUser(data);
       } catch (error) {
+        console.log('error dashboard',error);
         // Redirect to login if fetch fails
-        await signOut({ callbackUrl: "/login" });
+        //await signOut({ callbackUrl: "/login" });
       }
     };
     if (status === "authenticated") {
