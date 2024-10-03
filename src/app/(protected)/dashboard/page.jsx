@@ -19,13 +19,16 @@ export default function Dashboard() {
         return;
       }
       try {
-        const response = await fetch("http://localhost:8000/api/dashboard", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${session.user.accessToken}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/dashboard`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${session.user.accessToken}`,
+            },
+          }
+        );
         const data = await response.json();
         if (!response.ok) {
           //await update();
