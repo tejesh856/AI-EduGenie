@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { BsExclamationTriangle } from "react-icons/bs";
 import { CiCircleCheck } from "react-icons/ci";
 
@@ -156,5 +156,14 @@ export default function ResetPasswordForm() {
         )}
       </form>
     </Form>
+  );
+}
+export default function ResetPasswordFormPage() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ResetPasswordForm />
+      </Suspense>
+    </div>
   );
 }

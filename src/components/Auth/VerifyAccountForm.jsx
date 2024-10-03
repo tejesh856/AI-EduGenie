@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { BsExclamationTriangle } from "react-icons/bs";
 import { BeatLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
@@ -7,7 +7,7 @@ import { CiCircleCheck } from "react-icons/ci";
 import { useData } from "@/context/Datacontext";
 import { useMode } from "@/context/DayNight";
 
-export default function VerifyAccountForm() {
+function VerifyAccountForm() {
   const { mode } = useMode();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
@@ -72,6 +72,17 @@ export default function VerifyAccountForm() {
           color={`${mode === "dark" ? "#ffffff" : "#000000"}`}
         />
       )}
+    </div>
+  );
+}
+// Wrap the VerifyAccountForm component with Suspense in the parent component
+
+export default function VerifyAccountFormPage() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <VerifyAccountForm />
+      </Suspense>
     </div>
   );
 }
