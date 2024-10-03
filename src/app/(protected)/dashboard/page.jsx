@@ -37,6 +37,7 @@ export default function Dashboard() {
         }
         setUser(data);
       } catch (error) {
+        console.log('error dashboard',error);
         // Redirect to login if fetch fails
         await signOut({ callbackUrl: "/login" });
       }
