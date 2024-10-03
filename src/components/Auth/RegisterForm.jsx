@@ -3,9 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { usetheme } from "@/context/DayNight";
 import { useRouter } from "next/navigation";
 import { RegisterSchema } from "@/schema";
 import { CiCircleCheck } from "react-icons/ci";

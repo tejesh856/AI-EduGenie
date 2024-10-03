@@ -7,14 +7,14 @@ import { useTheme } from "next-themes";
 //import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Norican } from "next/font/google";
-import { usetheme } from "@/context/DayNight";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import { useMode } from "@/context/DayNight";
 const norican = Norican({ subsets: ["latin"], weight: "400" });
 
 export default function Beforeloginheader() {
   const router = useRouter();
-  const { mode, setmode } = usetheme();
+  const { mode, setmode } = useMode();
   const { status } = useSession();
   const { setTheme } = useTheme();
   const [currentPath, setCurrentPath] = useState("");

@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { usetheme, DayNight } from "@/context/DayNight";
+import { DayNight, useMode } from "@/context/DayNight";
 import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
 }
 
 function MainContent({ children }) {
-  const { mode, setmode } = usetheme();
+  const { mode, setmode } = useMode();
 
   return (
     <>

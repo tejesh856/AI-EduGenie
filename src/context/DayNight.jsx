@@ -18,18 +18,6 @@ export function DayNight({ children }) {
     }
   }, [mode]);
 
-  /*useEffect(() => {
-    // Save theme to localStorage only when it's loaded
-    if (isLoaded) {
-      localStorage.setItem("theme", mode);
-    }
-  }, [mode, isLoaded]);
-
-  // Render nothing or a loader until the theme is loaded
-  if (!isLoaded) {
-    return null; // Or render a loading spinner if preferred
-  }*/
-
   return (
     <DayNightContext.Provider value={{ mode, setmode }}>
       {children}
@@ -37,6 +25,6 @@ export function DayNight({ children }) {
   );
 }
 
-export function usetheme() {
+export function useMode() {
   return useContext(DayNightContext);
 }

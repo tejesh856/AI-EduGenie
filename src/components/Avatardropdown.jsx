@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
 
 export default function AvatarDropdown() {
