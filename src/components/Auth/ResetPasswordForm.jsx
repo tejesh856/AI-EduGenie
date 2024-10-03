@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { BsExclamationTriangle } from "react-icons/bs";
 import { CiCircleCheck } from "react-icons/ci";
 
@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { ResetPasswordSchema } from "@/schema";
 import PasswordCheck from "./PasswordCheck";
 import { useRouter, useSearchParams } from "next/navigation";
-export default function ResetPasswordForm() {
+function ResetPasswordForm() {
   const lengthPattern = /^.{6,}$/;
   const upperCasePattern = /[A-Z]/;
   const lowerCasePattern = /[a-z]/;
@@ -156,5 +156,14 @@ export default function ResetPasswordForm() {
         )}
       </form>
     </Form>
+  );
+}
+export default function ResetPasswordFormPage() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ResetPasswordForm />
+      </Suspense>
+    </div>
   );
 }
