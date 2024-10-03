@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { ResetPasswordSchema } from "@/schema";
 import PasswordCheck from "./PasswordCheck";
 import { useRouter, useSearchParams } from "next/navigation";
-export default function ResetPasswordForm() {
+function ResetPasswordForm() {
   const lengthPattern = /^.{6,}$/;
   const upperCasePattern = /[A-Z]/;
   const lowerCasePattern = /[a-z]/;
