@@ -5,10 +5,10 @@ import { BeatLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
 import { CiCircleCheck } from "react-icons/ci";
 import { useData } from "@/context/Datacontext";
-import { usetheme } from "@/context/DayNight";
+import { useMode } from "@/context/DayNight";
 
 export default function VerifyAccountForm() {
-  const { mode } = usetheme();
+  const { mode } = useMode();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   const { setIsLoading, isLoading, err, setErr } = useData(); // State to manage button/link clickability

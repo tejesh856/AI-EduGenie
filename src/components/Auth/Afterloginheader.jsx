@@ -7,14 +7,14 @@ import { useTheme } from "next-themes";
 //import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Norican } from "next/font/google";
-import { usetheme } from "@/context/DayNight";
 import { useSession } from "next-auth/react";
 import AvatarDropdown from "../Avatardropdown";
+import { useMode } from "@/context/DayNight";
 const norican = Norican({ subsets: ["latin"], weight: "400" });
 
 export default function Afterloginheader() {
   const router = useRouter();
-  const { mode, setmode } = usetheme();
+  const { mode, setmode } = useMode();
   const { status } = useSession();
   const { setTheme, theme } = useTheme();
 

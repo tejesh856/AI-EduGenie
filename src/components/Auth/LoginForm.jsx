@@ -13,23 +13,17 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { usetheme } from "@/context/DayNight";
 import { LoginSchema } from "@/schema";
-import { useData } from "@/context/Datacontext";
 export default function LoginForm() {
   const router = useRouter();
-  const { mode } = usetheme();
   const [isPending, setIsPending] = useState(false);
   const [success, setsuccess] = useState("");
-  const { data: session } = useSession();
   const [err, setErr] = useState("");
   const form = useForm({
     resolver: zodResolver(LoginSchema),
