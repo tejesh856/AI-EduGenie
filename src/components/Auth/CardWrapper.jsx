@@ -15,7 +15,7 @@ export default function CardWrapper({
   title,
   backbuttonhref,
   backbuttonlabel,
-  children,
+  ChildComponent,
   verifylabel,
 }) {
   return (
@@ -28,7 +28,9 @@ export default function CardWrapper({
       <CardHeader>
         <Authheader label={label} title={title} />
       </CardHeader>
-      <CardContent className="px-6 pb-4 w-full">{children}</CardContent>
+      <CardContent className="px-6 pb-4 w-full">
+        {ChildComponent && <ChildComponent />}{" "}
+      </CardContent>
       <CardFooter className=" px-6 w-full">
         <Backbutton label={backbuttonlabel} href={backbuttonhref} />
       </CardFooter>

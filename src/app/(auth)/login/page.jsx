@@ -9,7 +9,7 @@ function Login() {
         title={"Login"}
         backbuttonlabel={"Not a user?"}
         backbuttonhref={"/register"}
-        children={<LoginForm />}
+        ChildComponent={LoginForm}
       />
     </div>
   );

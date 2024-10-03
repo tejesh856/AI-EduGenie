@@ -8,7 +8,7 @@ export default function ResetPassword() {
         title={"Reset Password"}
         backbuttonlabel={"Go to"}
         backbuttonhref={"/login"}
-        children={<ResetPasswordForm />}
+        ChildComponent={ResetPasswordForm}
       />
     </div>
   );

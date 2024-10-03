@@ -11,7 +11,7 @@ function VerifyEmail() {
           title={"Verifying Your Account"}
           backbuttonlabel={"Back to"}
           backbuttonhref={"/login"}
-          children={<VerifyAccountForm />}
+          ChildComponent={VerifyAccountForm}
         />
       </div>
     </div>

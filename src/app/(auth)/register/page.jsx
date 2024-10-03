@@ -9,7 +9,7 @@ function Register() {
         title={"Register"}
         backbuttonlabel={"Already a user?"}
         backbuttonhref={"/login"}
-        children={<RegisterForm />}
+        ChildComponent={RegisterForm}
       />
     </div>
   );

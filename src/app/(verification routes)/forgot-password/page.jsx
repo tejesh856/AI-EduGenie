@@ -9,7 +9,7 @@ export default function ForgotPassword() {
         title={"Forgot Your Password"}
         backbuttonlabel={"Go back to"}
         backbuttonhref={"/login"}
-        children={<ForgotPasswordForm />}
+        ChildComponent={ForgotPasswordForm}
       />
     </div>
   );
