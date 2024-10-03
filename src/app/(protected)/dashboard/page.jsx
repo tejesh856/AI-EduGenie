@@ -14,13 +14,12 @@ export default function Dashboard() {
   // Fetch user data when session is available
   useEffect(() => {
     const fetchUser = async () => {
-      console.log('starting fetch user',session);
       if (!session?.user?.accessToken) {
         await signOut({ callbackUrl: "/login" });
         return;
       }
       try {
-        const response = await fetch("http://localhost:8000/api/dashboard", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/dashboard`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -28,7 +27,6 @@ export default function Dashboard() {
           },
         });
         const data = await response.json();
-        console.log('response data',data);
         if (!response.ok) {
           //await update();
           //return;
@@ -38,7 +36,7 @@ export default function Dashboard() {
       } catch (error) {
         console.log('error dashboard',error);
         // Redirect to login if fetch fails
-        //await signOut({ callbackUrl: "/login" });
+        await signOut({ callbackUrl: "/login" });
       }
     };
     if (status === "authenticated") {
