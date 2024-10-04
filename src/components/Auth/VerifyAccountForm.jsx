@@ -33,7 +33,7 @@ function VerifyAccountForm() {
         setErr(res.error.message);
       } else {
         // Disable the form after successful verification
-
+        setIsLoading(false);
         setsuccess(res.message);
       }
     } catch (error) {
